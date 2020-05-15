@@ -1,0 +1,195 @@
+
+<section  class="section section-shaped section-lg">
+     <div   class="shape  bg-gradient-secondary">
+                                                   
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+        
+        <section style="height: 30px;" class="section section-shaped section-lg disabled bg-light" >
+          
+                <div style="max-height: 50px; padding-left: 5%;"  class="row justify-content-center">
+                     <h4 style="color: teal;">Legenda das ações:</h4><br>
+                     <button style="max-height: 30px;margin-left: 2%;" type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
+                                            <i class="ni ni-check-bold pt-1"></i>
+                     </button><label>Encerra o atendimento</label>
+                    
+                    <button style="max-height: 30px;margin-left: 2%;"  type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
+                                            <i class="ni ni-fat-remove pt-1"></i>
+                    </button><label>Cancela o atendimento</label>
+                    <button style="max-height: 30px;margin-left: 2%;" type="button" rel="tooltip"  class="btn btn-warning btn-icon btn-sm " data-original-title="" title="">
+                                            <i class="ni ni-fat-add pt-1"></i>
+                    </button><label>Define o motivo como: "ATENDIMENTO"</label>
+                    
+                    <button style="max-height: 30px;margin-left: 2%;" type="button" rel="tooltip"  class="btn btn-default btn-icon btn-sm " data-original-title="" title="">
+                                            <i class="ni ni-fat-delete pt-1"></i>
+                    </button><label>Define o motivo como: "PERIÓDICO"</label>
+                    <button style="max-height: 30px;margin-left: 2%;" type="button" rel="tooltip" onclick="defineMotivo('{{dataValues.id}}','Plano de Saude')" class="btn btn-info btn-icon btn-sm " data-original-title="" title="">
+                                            <i class="ni ni-satisfied pt-1"></i>
+                    </button><label>Define o motivo como: "PLANO DE SAÚDE"</label>
+
+                </div>
+
+               
+        </section><br>
+
+       
+      <div class="row justify-content-center" style="width: 90%; margin-left: 5%">
+            
+
+
+                                <h3>Em Atendimento</h3>
+                              
+                                <input style="width: 60%; margin-left: 10%; opacity: 0" type="text" class="form-control" placeholder="Pesquise aqui..." name="pesquisaAtendimento">
+                                    <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Cadastro</th>
+                                        <th>Nome</th>
+                                        <th>Seção</th>
+                                        <th>Departamento</th>
+                                        <th class="">Entrou</th>
+                                        <th class="text-right">Motivo</th>
+                                        <th class="text-right">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tabela1">
+                                     {{#each ocorrencia2}}
+                                      <tr>
+                                        <td class="text-center">{{dataValues.cadastro}} </td>
+                                        <td>{{dataValues.nome}}</td>
+                                        <td>{{dataValues.secao}}</td>
+                                        <td>{{dataValues.departamento}}</td>
+                                        <td class=" ENTROU">{{dataValues.entrou}}</td>
+                                        <td class="text-right ">{{dataValues.motivo}}
+                                            {{#if dataValues.motivo}}
+                                        
+                                        {{else}}
+                                        <button type="button" rel="tooltip" onclick="defineMotivo('{{dataValues.id}}','Atendimento')" class="btn btn-warning btn-icon btn-sm " data-original-title="" title="">
+                                            <i class="ni ni-fat-add pt-1"></i>
+                                        </button>
+                                        <button type="button" rel="tooltip" onclick="defineMotivo('{{dataValues.id}}','Periodico')" class="btn btn-default btn-icon btn-sm " data-original-title="" title="">
+                                            <i class="ni ni-fat-delete pt-1"></i>
+                                        </button>
+                                        <button type="button" rel="tooltip" onclick="defineMotivo('{{dataValues.id}}','Plano de Saude')" class="btn btn-info btn-icon btn-sm " data-original-title="" title="">
+                                            <i class="ni ni-satisfied pt-1"></i>
+                                        </button>
+
+
+                                        {{/if}}
+                                        </td>
+                                        <td class="td-actions text-right" style="min-width: 150px">
+                                        
+                                
+                                         <button type="button" rel="tooltip" onclick="finalizarRegistro('{{dataValues.id}}')" class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
+                                            <i class="ni ni-check-bold pt-1"></i>
+                                        </button>
+                                        <button  onclick="eliminarRegistro('{{dataValues.id}}')" type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
+                                            <i class="ni ni-fat-remove pt-1"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                   
+                                     {{/each }}
+                                    
+                                </tbody>
+                            </table>
+
+
+
+
+
+
+
+               
+                </div>
+                
+
+
+
+      </div>
+</section>
+
+<section class="section section-shaped section-lg">
+      <div  class="shape  bg-gradient-neutral">
+          
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+         
+            <div class="row justify-content-center" style="width: 90%; margin-left: 5%">
+            
+                           
+
+                                <h3>Atendimentos Encerrados</h3>
+                                <input style="width: 40%; margin-left: 10%; opacity: 0" type="text" class="form-control" placeholder="Pesquise aqui..." id="pesquisa" name="pesquisaHistorico">
+                                <button style="margin-left: 4%; float: left" class="btn btn-default" id="botao">EXPORTAR PARA EXCEL</button>
+                        
+                                
+                     
+
+
+
+                                    <table id="tblExport" class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Cadastro</th>
+                                        <th>Nome</th>
+                                        <th>Seção</th>
+                                        <th>Departamento</th>
+                                        <th class="text-right">Duração</th>
+                                        <th style="display: none;" class="text-right">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each ocorrencia}}
+                                    <tr class="OCORRENCIA">
+                                        <td class="text-center">{{dataValues.cadastro}}</td>
+                                        <td>{{dataValues.nome}}</td>
+                                        <td>{{dataValues.secao}}</td>
+                                        <td>{{dataValues.departamento}}</td>
+                                        <td class="text-right">{{dataValues.decorrido}}</td>
+                                        <td class="td-actions text-right" style="min-width: 150px">
+                                   
+                                    
+                                        <button style="display: none;" onclick="eliminarRegistro('{{dataValues.id}}')" type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
+                                            <i class="ni ni-fat-remove pt-1"></i>EXCLUIR
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    {{/each }}
+                                    
+                                </tbody>
+                            </table>
+
+
+
+
+
+
+
+                
+                </div>
+       
+                <script src="main.js"></script>
+
+
+      </div>
+</section>
+  

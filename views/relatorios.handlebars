@@ -1,0 +1,35 @@
+<style>
+#chartdiv {
+    margin-top: 5%;;
+  width: 100%;
+  height: 500px;
+}
+
+</style>
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Chart code -->
+<script>
+
+</script>
+
+<!-- HTML -->
+<h1 style="margin-top: 7%;text-align:center;">Atendimento Ambulatorial</h1><br>
+<section style="border-bottom: 1px solid rgb(0,87,156);">
+<div style="min-height: 100px;display: inline-block; margin-left: 10%"><h2 style=" color:green"><span id="quantidadeAtentimentos">0</span> Atendimentos</h2></div>
+<div style="min-height: 100px;display: inline-block; margin-left: 10%"><h2 style=" color:rgb(0,87,156)"> Tempo Médio: <span style="color: black; font-wheigt: bold" id="tempo">00:00:00</span> hhmmss</h2></div>
+<div style="min-height: 100px;display: inline-block; margin-left: 10%">
+<label style="float: left; margin-left: 10%" for="calendar">Selecione um mês: </label><input style="float: left; margin-left:1%; min-width: 100%" type="date" id="calendar">
+<h3><span id="mes">Mês</span> - <span id="ano">Ano</span></h3>
+</div>
+</section>
+
+
+<div id="chartdiv"></div>
+
+<script src="relatorios.js"></script>
